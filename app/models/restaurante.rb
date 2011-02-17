@@ -12,11 +12,13 @@ class Restaurante < ActiveRecord::Base
 
   validate :primeira_letra_deve_ser_maiscula
 
+  scope :massas, where({:especialidade => 'massas'})
+
 
   private
 
   def primeira_letra_deve_ser_maiscula
-    erros.add("nome", "primeira letra deve ser maiscula") unless nome =~ /[A-Z].*
+    errors.add("nome", "primeira letra deve ser maiscula") unless nome =~ /[A-Z].*/
   end
 
 end

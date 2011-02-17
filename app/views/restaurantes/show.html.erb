@@ -1,0 +1,20 @@
+<h1>Exibinado Restaurante</h1>
+
+<p>
+  <b>Nome:</b>
+  <%= @restaurante.nome %>
+</p>
+
+<p>
+  <b>Endereço:</b>
+  <%= @restaurante.endereco %>
+</p>
+
+<p>
+  <b>Especialidade:</b>
+  <%= @restaurante.especialidade %>
+</p>
+
+<%= link_to "Editar", edit_restaurante_url %>
+<%= link_to "Voltar", restaurantes_url %>
+

@@ -1,0 +1,31 @@
+<h1>Listagem de Qualificações</h1>
+
+<div id="new_link">
+  <%= image_tag "icn_circulo.png" %> <%= link_to 'Nova Qualificação', new_qualificacao_path %>
+</div>
+
+<table width="60%" class="tabelaPadrao" cellpadding="4" cellspacing="0" border="0">
+  <tr class="linha_titulo1">
+    <th>Cliente</th>
+    <th>Restaurante</th>
+    <th>Nota</th>
+    <th>Valor Gasto</th>
+    <th width="5%"></th>
+    <th width="5%"></th>
+    <th width="5%"></th>
+  </tr>
+  <% @qualificacoes.each do |qualificacao| %>
+    <tr>
+      <td><%= qualificacao.cliente.nome %></td>
+      <td align="center"><%= qualificacao.restaurante.nome %></td>
+      <td align="center"><%= qualificacao.nota %></td>
+      <td align="center"><%= qualificacao.valor_gasto %></td>
+      <td align="center"><%= link_to image_tag("icn_detalhes.png", :border => 0, :title => "Visualizar"), qualificacao %></td>
+      <td align="center"><%= link_to image_tag("icn_editar.png", :border => 0, :title => "Editar"), edit_qualificacao_path(qualificacao) %></td>
+      <td align="center"><%= link_to image_tag("icn_deletar.png", :border => 0, :title => "Excluir"), qualificacao, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+

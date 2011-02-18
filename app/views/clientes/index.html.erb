@@ -1,0 +1,28 @@
+<h1>Listagem de Clientes</h1>
+
+<div id="new_link">
+  <%= image_tag "icn_circulo.png" %> <%= link_to 'Cadastrar Cliente', new_cliente_path %>
+</div>
+
+<table width="60%" class="tabelaPadrao" cellpadding="4" cellspacing="0" border="0">
+  <tr class="linha_titulo1">
+    <th>Nome</th>
+    <th>Idade</th>
+    <th width="5%"></th>
+    <th width="5%"></th>
+    <th width="5%"></th>
+  </tr>
+
+<% @clientes.each do |cliente| %>
+  <tr>
+    <td><%= cliente.nome %></td>
+    <td align="center"><%= cliente.idade %></td>
+    <td align="center"><%= link_to image_tag("icn_detalhes.png", :border => 0, :title => "Visualizar"), cliente %></td>
+    <td align="center"><%= link_to image_tag("icn_editar.png", :border => 0, :title => "Editar"), edit_cliente_path(cliente) %></td>
+    <td align="center"><%= link_to image_tag("icn_deletar.png", :border => 0, :title => "Excluir"), cliente, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110216005235) do
+ActiveRecord::Schema.define(:version => 20110218214805) do
 
   create_table "clientes", :force => true do |t|
     t.string   "nome",       :limit => 80
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(:version => 20110216005235) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comentarios", :force => true do |t|
+    t.text     "conteudo"
+    t.integer  "comentavel_id"
+    t.string   "comentavel_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comentarios", ["comentavel_id"], :name => "index_comentarios_on_comentavel_id"
+  add_index "comentarios", ["comentavel_type"], :name => "index_comentarios_on_comentavel_type"
 
   create_table "pratos", :force => true do |t|
     t.string   "nome",       :limit => 80

@@ -11,8 +11,8 @@ class Qualificacao < ActiveRecord::Base
   validates_associated :cliente, :restaurante
 
   validates_numericality_of :nota,
-                            :greater_than => 0,
-                            :less_than => 10,
+                            :greater_than_or_equal_to => 0,
+                            :less_than_or_equal_to => 10,
                             :message => " - deve ser um número entre 0 e 10"
 
   validates_numericality_of :valor_gasto,

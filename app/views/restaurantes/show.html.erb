@@ -24,3 +24,9 @@
 
 <%= link_to 'Qualificar este restaurante', :controller => 'qualificacoes', :action => 'new', :restaurante => @restaurante %>
 
+<% unless @restaurante.comentarios.empty? %>
+  <%= comentarios @restaurante %>
+<% end %>
+
+<%= novo_comentario @restaurante %>
+

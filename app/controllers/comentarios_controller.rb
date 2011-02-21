@@ -44,8 +44,8 @@ class ComentariosController < ApplicationController
 
     respond_to do |format|
       if @comentario.save
-        format.html { redirect_to(@comentario, :notice => 'Comentario was successfully created.') }
         format.xml  { render :xml => @comentario, :status => :created, :location => @comentario }
+        format.js {}
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @comentario.errors, :status => :unprocessable_entity }
@@ -76,8 +76,9 @@ class ComentariosController < ApplicationController
     @comentario.destroy
 
     respond_to do |format|
-      format.html { redirect_to(comentarios_url) }
       format.xml  { head :ok }
+      format.js   { head :ok }
     end
   end
 end
+

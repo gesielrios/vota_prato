@@ -16,7 +16,7 @@ class RestaurantesController < ApplicationController
     @restaurante = Restaurante.new params[:restaurante]
 
     if @restaurante.save
-      redirect_to (:action => "show", :id => @restaurante)
+      redirect_to(:action => "show", :id => @restaurante)
     else
       render :action => "new"
     end
